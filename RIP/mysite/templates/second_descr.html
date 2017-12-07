@@ -1,0 +1,36 @@
+{% extends 'index.html' %}
+
+{% block second_descr %}
+<h2>Background information</h2>
+<div class="row">
+    <form class="form-horizontal" role="form">
+        <div class="form-group">
+            <label class="col-md-6 col-sm-3 control-label">Origin</label>
+            <div class="col-md-6 col-sm-3">
+                <p class="form-control-static">{{dict.origin}}</p>
+            </div>
+        </div>
+        <form class="form-horizontal" role="form">
+            <div class="form-group">
+                <label class="col-md-6 col-sm-3 control-label">Genres</label>
+                <div class="col-md-6 col-sm-3">
+                    <p class="form-control-static">{{dict.genre}}</p>
+                </div>
+            </div>
+            <form class="form-horizontal" role="form">
+                <div class="form-group">
+                    <label class="col-md-6 col-sm-3 control-label">Years active</label>
+                    <div class="col-md-6 col-sm-3">
+                        <p class="form-control-static">{{dict.years}}</p>
+                    </div>
+                </div>
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                    <label class="col-md-6 col-sm-3 control-label">Members</label>
+                        <div class="col-md-6 col-sm-3">
+                            <p class="form-control-static">{{dict.members}}</p>
+                        </div>
+                    </div>
+</div>
+{% endblock %}
+

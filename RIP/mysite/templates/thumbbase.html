@@ -1,0 +1,23 @@
+
+{% block thumbnail %}
+{% load staticfiles %}
+<link href="{% static "dopstyle.css" %}" rel="stylesheet" media="screen">
+
+<div  class="thumbnail">
+
+
+    <img  src= {% static image %}  onError="this.src='{% static '/media/ifnoimage.jpg' %}'">
+
+
+    <div class="caption">
+        <div class="row">
+            <div class="col-md-6 col-sm-3">
+                <h3 style="margin-top:5px;">{{ name }}</h3>
+            </div>
+            <div class="col-md-6 col-sm-3">
+                <p><a href="#" id="id_button" class="btn btn-primary" role="button" >View details</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
