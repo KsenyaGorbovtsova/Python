@@ -1,0 +1,35 @@
+[
+    {
+    "model": "myapp.Band",
+    "fields": {
+        "name": "Little Big",
+        "origin": "Russia, St. Petersburg",
+        "genre": "Rave, rap rave",
+        "founding_date": "2013-07-02",
+        "description": "Little Big is a Russian rave group, founded in 2013 in St. Petersburg. The set includes Ilya Ilich Prusikin, Sergey Gokk Makarov, Sophia Tayurskaya, Olympia Ivleva and Anton Boo Lissov. The first full-length album, 'With Russia From Love was' released on March 17, 2014. Throughout its existence the group has released two albums and three singles.",
+        "image": "band1.jpg"
+    }
+    },
+    {
+        "model": "myapp.Band",
+        "fields": {
+        "name": "Imagine Dragons",
+        "origin": "Las Vegas, Nevada, U.S.",
+        "genre": "Alternative rock",
+        "founding_date": "2008-01-01",
+        "description": "Imagine Dragons is an American rock band from Las Vegas, Nevada, consisting of lead vocalist Dan Reynolds, lead guitarist Wayne Sermon, bassist and keyboardist Ben McKee, and drummer Daniel Platzman.",
+        "image":"band3.jpg"
+        }
+    },
+  {
+        "model": "myapp.Band",
+        "fields": {
+        "name": "Die Antwoord",
+        "origin": "Las Vegas, Nevada, U.S.",
+        "genre": "Alternative rock",
+        "founding_date": "2008-01-01",
+        "description": "Imagine Dragons is an American rock band from Las Vegas, Nevada, consisting of lead vocalist Dan Reynolds, lead guitarist Wayne Sermon, bassist and keyboardist Ben McKee, and drummer Daniel Platzman.",
+        "image":"band3.jpg"
+        }
+    }
+]

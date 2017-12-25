@@ -1,0 +1,76 @@
+{% load staticfiles %}
+{%block modal_window2 %}
+
+<style>
+    #modal_form2 {
+	width: 200px;
+	height: 300px;
+	border-radius: 5px;
+	border: 3px #000 solid;
+	background: #fff;
+	position: fixed;
+	top: 45%;
+	left: 50%;
+	margin-top: -150px;
+	margin-left: -150px;
+	display: none;
+	opacity: 0;
+	z-index: 5;
+	padding: 20px 10px;
+	}
+#modal_form2 #modal_close2{
+	width: 21px;
+	height: 21px;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	cursor: pointer;
+	display: block;
+}
+#overlay2 {
+	z-index:3;
+	position:fixed;
+	background-color:#000;
+	opacity:0.8;
+	-moz-opacity:0.8;
+	filter:alpha(opacity=80);
+	width:100%;
+	height:100%;
+	top:0;
+	left:0;
+	cursor:pointer;
+	display:none;
+}
+</style>
+<link href="{% static "style.css" %}" rel="stylesheet" media="screen">
+    <div id="modal_form2">
+      <span id="modal_close2">X</span>
+        <h2>Sign In</h2>
+        <form action="{% url 'login' %}" method="post">
+            {% if form.errors %}
+                <p style="color: red">Your username and password didn't match. Please try again.</p>
+            {% endif %}
+            {% csrf_token %}
+                <input type="hidden" name="next" value="{{ next }}" />
+                    {% for field in form %}
+                        <p>
+                        {{ field.label_tag }}<br>
+                        {{ field }}<br>
+                            {% for error in field.errors %}
+                                <p style="color: red">{{ error }}</p>
+                            {% endfor %}
+                        {% if field.help_text %}
+                            <p><small style="color: grey">{{ field.help_text }}</small></p>
+                        {% endif %}
+                        </p>
+                    {% endfor %}
+            <button type="submit">Log in</button>
+         </form>
+        </div>
+    <div id="overlay2"></div>
+    {% endblock %}
+
+
+
+
+

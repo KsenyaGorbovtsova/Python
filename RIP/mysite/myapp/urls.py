@@ -15,11 +15,20 @@ Including another URLconf
 """
 from django.conf.urls import url
 from myapp import views
-
+from django.contrib.auth import views as auth_views
 urlpatterns = [
-    url(r'^$', views.hello, name='hello'),
-    url(r'^123/', views.index, name='index'),
+    url(r'^test/', views.hello, name='hello'),
+    url(r'^startpage/', views.main, name='main'),
+    url(r'^extra/(?P<id>\d+)', views.Extra.as_view(), name='extra'),
+    url(r'^index/$', views.PrivateBandList.as_view(), name='index'),
+    url(r'^index/page=(?P<page>\d+)', views.PrivateBandList.as_view(), name='index'),
+    url(r'^signup/$', views.signup, name='signup'),
+    url(r'^login/$', auth_views.login, {'template_name': 'modal_window2.html'}, name='login'),
+    url(r'^logout/$', auth_views.logout,  {'next_page': 'main'}, name='logout'),
 
-   
+
+
+
 ]
+
 

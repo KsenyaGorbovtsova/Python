@@ -63,6 +63,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+
             ],
         },
     },
@@ -77,13 +79,13 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': musicbands_db,
-        'USER': dbuser,
-        'PASSWORD': 0807Ksenya,
-        'HOST': localhost,
-        'PORT':3306,
-        'OPTIONS':{'charset':'utf8'},
-        'TEST_CHARSET':'utf8',
+        'NAME': 'musicbands_db',
+        'USER': 'dbuser',
+        'PASSWORD': '0807Ksenya',
+        'HOST': 'localhost',
+        'PORT': 3306,
+        'OPTIONS': {'charset' : 'utf8'},
+        'TEST_CHARSET' : 'utf8',
 
 
 
@@ -114,6 +116,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
+LOGIN_REDIRECT_URL = '/myapp/index'
 
 TIME_ZONE = 'UTC'
 
@@ -128,3 +131,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

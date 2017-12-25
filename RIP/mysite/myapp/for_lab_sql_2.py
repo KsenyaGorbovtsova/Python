@@ -2,9 +2,9 @@ import pymysql
 from django.db import models
 
 class Band(models.Model):
-    name=models.CharField(max_lenght=20)
-    origin=models.CharField(max_lenght=50)
-    genre=models.CharField(max_lenght=50)
+    name=models.CharField()
+    origin=models.CharField()
+    genre=models.CharField()
     founding_date=models.DateField()
     description=models.TextField()
     image=models.ImageField(upload_to='')
@@ -15,10 +15,10 @@ class Artist(models.Model):
         (u'M', u'Male'),
         (u'F', u'Female'),
     )
-    first_name=models.CharField(max_lenght=20)
-    last_name=models.CharField(max_lenght=20)
-    gender=models.CharField(max_lenght=2, choices=GENDER_CHOICES)
-    instrument=models.CharField(max_lenght=20)
+    first_name=models.CharField()
+    last_name=models.CharField()
+    gender=models.CharField(choices=GENDER_CHOICES)
+    instrument=models.CharField()
     photo=models.ImageFiled(upload_to='')
 
 

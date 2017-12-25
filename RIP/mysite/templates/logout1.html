@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+<link href="{% static "style.css" %}" rel="stylesheet" media="screen">
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+
+    <title>Welcome</title>
+  </head>
+  <body>
+
+{% block main %}
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1>You are logout!</h1><br>
+          <h1>See you later,Bye!</h1>
+        <h1>If you want to return, please Login ^^</h1>
+        <p><a class="btn btn-primary btn-lg" href="{% url 'main' %}" role="button">Enter</a></p>
+      </div>
+    </div>
+
+
+    </div>
+{% endblock %}
+
+  </body>
+</html>
