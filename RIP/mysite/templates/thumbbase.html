@@ -1,0 +1,30 @@
+
+{% block thumbnail %}
+{% load staticfiles %}
+
+<link href="{% static "dopstyle.css" %}" rel="stylesheet" media="screen">
+
+<div  class="thumbnail">
+
+    {% if image %}
+        <img src="{{ item.image.url }} ">
+
+    {% else %}
+    <img  src= "{% static 'media/ifnoimage.jpg' %}">
+        {% endif %}
+
+  <!----  <img  src= "{{MEDIA_URL}}{{ image.url }}" onError="this.src='{% static 'ifnoimage.jpg' %}'"> --->
+
+
+    <div class="caption">
+        <div class="row">
+            <div class="col-md-6 col-sm-3" style="padding-left: 5px; padding-right: 5px;">
+                <h3 style="margin-top:5px;  word-wrap:break-word; ">{{ name }}</h3>
+            </div>
+            <div class="col-md-6 col-sm-3">
+                <p><a href="{% url 'extra' item.id %}" id="id_button" class="btn btn-primary" role="button" >View details</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

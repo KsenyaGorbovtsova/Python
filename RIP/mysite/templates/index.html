@@ -1,0 +1,107 @@
+
+{% extends 'base.html' %}
+{% load staticfiles %}
+<link href="{% static "dopstyle.css" %}" rel="stylesheet" media="screen">
+
+{% block title %}Choose your band!{% endblock %}
+{% block head %}Choose your band!{% endblock %}
+      {% block main %}
+<style>
+            .grid-container {
+
+                display: grid;
+                grid-template-columns: 265px 265px 265px;
+
+            }
+
+            .grid-item {
+                box-sizing: border-box;
+                text-align:left;
+                height: 100%;
+                display: flex;
+                flex-wrap: wrap;
+
+                padding:2px;
+                color: white;
+            }
+
+        </style>
+      <div class="container">
+        <div class="row.display-flex">
+          <div class="col-sm-12 col-md-7 col-lg-9">
+
+              <div class="grid-container">
+                  {% for item in band %}
+                    <div class="grid-item">
+                        {% include "thumbbase.html" with image=item.image name=item.name id=item.id %}
+                    </div>
+                  {% endfor %}
+
+              </div>
+
+
+          </div>
+        <aside class="col-sm-12 col-md-5 col-lg-3">
+            <div class="row">
+              <div  class="col-sm-6 col-md-12">
+                <h3 style="text-align:center;">Create a New Band!</h3>
+                  <script type="text/javascript">
+$(document).ready(function() {
+	$('button#add').click( function(event){
+		event.preventDefault();
+		$('#overlay3').fadeIn(400,
+		 	function(){
+				$('#modal_form3')
+
+					.css('display', 'block')
+					.animate({opacity: 1, top: '35%'}, 200);
+
+		});
+
+
+	});
+
+	$('#modal_close3, #overlay3').click( function(){
+		$('#modal_form3')
+			.animate({opacity: 0, top: '45%'}, 200,
+				function(){
+					$(this).css('display', 'none');
+					$('#overlay3').fadeOut(400);
+				}
+			);
+	});
+});
+
+</script>
+            <button  href="{% url 'band_adding' %}" type="button" id="add" style="text-align: center;" class="btn btn-primary">Create!</button>
+
+                {% include 'band_adding.html' %}
+              </div>
+
+            </div>
+          </aside>
+        </div>
+      </div>
+{% if is_paginated %}
+        <div  class="pagination">
+            <span class="page-links">
+                {% if page_obj.has_previous %}
+                    <a href="{% url 'index' page_obj.previous_page_number %}">previous</a>
+                {% endif %}
+                <span class="page-current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+                {% if page_obj.has_next %}
+                    <a href="{% url 'index' page_obj.next_page_number %}">next</a>
+                {% endif %}
+            </span>
+        </div>
+
+{% else %}
+    <h3>Bands</h3>
+    <p>No bands found!</p>
+{% endif %}
+
+
+
+    {% endblock %}
