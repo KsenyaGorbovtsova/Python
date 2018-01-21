@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+<link href="{% static "dopstyle.css" %}" rel="stylesheet" media="screen">
+
+{% block title %}Your Profile {% endblock %}
+{% block head %}{% endblock %}
+      {% block main %}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <a class="btn btn-primary btn-lg"
+                      style="margin-top: 10%"
+                       href="{% url 'choice' %}" role="button">Back</a>
+        </div>
+ <div style="text-align: center" class="col-md-4 ">
+                <!---<img class="rounded-circle"
+                     src="{{artists.photo.url }}"
+                     alt="Generic placeholder image" width="140" height="140"> !--->
+                <h2>{{ artists.first_name }}</h2>
+                <h2>{{ artists.last_name }}</h2>
+
+                <h3>Membership:
+                    {% for band in bands %}
+                    {{ band.name}}
+                    {% endfor %}
+                </h3>
+                <h3>Gender: {{ artists.gender }}</h3>
+                <h3>Instrument: {{ artists.instrument }}</h3>
+<div>
+     <script type="text/javascript">
+$(document).ready(function() {
+	$('button#add4').click( function(event){
+		event.preventDefault();
+		$('#overlay4').fadeIn(400,
+		 	function(){
+				$('#modal_form4')
+
+					.css('display', 'block')
+					.animate({opacity: 1, top: '35%'}, 200);
+
+		});
+
+
+	});
+
+	$('#modal_close4, #overlay4').click( function(){
+		$('#modal_form4')
+			.animate({opacity: 0, top: '45%'}, 200,
+				function(){
+					$(this).css('display', 'none');
+					$('#overlay4').fadeOut(400);
+				}
+			);
+	});
+});
+
+</script>
+    <button  href="{% url 'artist_adding' %}" type="button" id="add4" style="text-align: center;" class="btn btn-primary">Change</button>
+
+                {% include 'artist_adding.html' %}
+</div>
+
+
+
+            </div>
+        <div class="col-md-4"></div>
+</div>
+</div>
+    {% endblock %}

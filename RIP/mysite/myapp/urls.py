@@ -16,25 +16,20 @@ Including another URLconf
 from django.conf.urls import url
 from myapp import views
 from django.contrib.auth import views as auth_views
-from mysite import settings
-from django.conf.urls.static import static
+
 urlpatterns = [
     url(r'^test/', views.hello, name='hello'),
     url(r'^startpage/', views.main, name='main'),
     url(r'^choice/', views.choice, name='choice'),
     url(r'^extra/(?P<band_id>\d+)', views.Extra.as_view(), name='extra'),
+    url(r'^join/(?P<band_id>\d+)', views.join, name='send'),
     url(r'^index/$', views.PrivateBandList.as_view(), name='index'),
     url(r'^index/page=(?P<page>\d+)', views.PrivateBandList.as_view(), name='index'),
     url(r'^signup/$', views.signup, name='signup'),
     url(r'^login/$', auth_views.login, {'template_name': 'modal_window2.html'}, name='login'),
-    url(r'^logout/$', auth_views.logout,  {'next_page': 'main'}, name='logout'),
+    url(r'^logout/$', auth_views.logout, {'next_page': 'main'}, name='logout'),
     url(r'^band_adding/$', views.BandAddingView.as_view(), name='band_adding'),
+    url(r'^artist/$', views.Artist_Data.as_view(), name='artist_data'),
+    url(r'^artist_adding/$', views.ArtistAddingView.as_view(), name='artist_adding'),
     url(r'^error/$', views.ErrorView.as_view(), name='error_page'),
-
-
-
-
-
 ]
-
-
